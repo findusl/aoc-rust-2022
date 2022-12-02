@@ -1,5 +1,4 @@
 pub fn part_one(input: &str) -> Option<u32> {
-	println!("Input ist {}", input);
 	let max_calories = input.split("\n\n")
 		.map(|person| {
 			person.split("\n").map(|food| food.parse::<u32>().unwrap()).sum()
