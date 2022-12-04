@@ -1,7 +1,7 @@
 pub fn part_one(input: &str) -> Option<u32> {
 	let max_calories = input.split("\n\n")
 		.map(|person| {
-			person.split("\n").map(|food| food.parse::<u32>().unwrap()).sum()
+			person.lines().map(|food| food.parse::<u32>().unwrap()).sum()
 		}).max();
 	max_calories
 }
@@ -9,7 +9,7 @@ pub fn part_one(input: &str) -> Option<u32> {
 pub fn part_two(input: &str) -> Option<u32> {
 	let mut all_values: Vec<u32> = input.split("\n\n")
 		.map(|person| {
-			person.split("\n").map(|food| food.parse::<u32>().unwrap()).sum()
+			person.lines().map(|food| food.parse::<u32>().unwrap()).sum()
 		}).collect();
 	all_values.sort();
 	all_values.reverse();
