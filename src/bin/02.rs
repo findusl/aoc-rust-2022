@@ -1,7 +1,7 @@
 use crate::RPSMoves::{PAPER, ROCK, SCISSORS};
 
 pub fn part_one(input: &str) -> Option<u32> {
-	let rounds = input.split("\n");
+	let rounds = input.lines();
 	let total_score = rounds.map(|round| {
 		let mut chars = round.chars();
 		let first_move = parse(chars.next().unwrap()).unwrap();
@@ -15,7 +15,7 @@ pub fn part_one(input: &str) -> Option<u32> {
 }
 
 pub fn part_two(input: &str) -> Option<u32> {
-	let rounds = input.split("\n");
+	let rounds = input.lines();
 	let total_score = rounds.map(|round| {
 		let mut chars = round.chars();
 		let first_move = parse(chars.next().unwrap()).unwrap();
@@ -52,7 +52,7 @@ fn parse(c: char) -> Option<RPSMoves> {
 	}
 }
 
-fn outcome(first_move: RPSMoves, second_move:RPSMoves) -> u32 {
+fn outcome(first_move: RPSMoves, second_move: RPSMoves) -> u32 {
 	if first_move == second_move {
 		return 3;
 	}
