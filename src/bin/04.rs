@@ -1,7 +1,7 @@
 pub fn part_one(input: &str) -> Option<u32> {
-	let rucksacks = input.lines();
-	let amount = rucksacks.filter(|rucksack| {
-		let (first_start, first_end, second_start, second_end) = parse_pair(rucksack);
+	let sections = input.lines();
+	let amount = sections.filter(|section_pair| {
+		let (first_start, first_end, second_start, second_end) = parse_pair(section_pair);
 		let is_included = (first_start <= second_start && first_end >= second_end) ||
 			(first_start >= second_start && first_end <= second_end);
 		is_included
@@ -24,9 +24,9 @@ fn parse_range(range: &str) -> (u32, u32) {
 }
 
 pub fn part_two(input: &str) -> Option<u32> {
-	let rucksacks = input.lines();
-	let amount = rucksacks.filter(|rucksack| {
-		let (first_start, first_end, second_start, second_end) = parse_pair(rucksack);
+	let sections = input.lines();
+	let amount = sections.filter(|section_pair| {
+		let (first_start, first_end, second_start, second_end) = parse_pair(section_pair);
 		let has_overlap = (first_start <= second_start && first_end >= second_start) ||
 			(first_start >= second_start && first_start <= second_end);
 		has_overlap
